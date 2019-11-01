@@ -1,0 +1,26 @@
+package allstring;
+
+public class StringCompare {
+
+	public static void main(String[] args) {
+		String s1 = new  String("Russel");
+		String s2 = new  String("Russel");
+		
+		System.out.println(s1 == s2); //false, reference /address comparison, if both obj reference to same obj then it will return true
+		System.out.println(s1.equals(s2)); //true, equals method overridden in String class for content comparison.
+		
+		
+		StringBuilder sb1 = new StringBuilder("Russel");
+		StringBuilder sb2 = new StringBuilder("Russel");
+		System.out.println(sb1 == sb2); //false
+		System.out.println(sb1.equals(sb2)); //false, object class equals method get called, so its not overridden 
+		
+		
+		String s3 = "Russel";
+		String s4 = "Russel";
+		System.out.println(s3 == s4); //true
+		System.out.println(s3.equals(s4)); //true
+		
+	}
+
+}
