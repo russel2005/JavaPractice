@@ -1,0 +1,9 @@
+public class module {
+	 private String brand;
+	 private boolean empty;
+	 public static void main(String[] args) {
+		 module wb = new module();
+	     System.out.print("Empty = " + wb.empty); //false
+	     System.out.print(", Brand = " + wb.brand); //null
+	 } 
+}
