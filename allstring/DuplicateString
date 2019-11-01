@@ -1,0 +1,67 @@
+package allstring;
+
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class DuplicateString {
+	
+	static void findDuplicateWord(String str){
+		String[] splitStr = str.split(" ");
+		
+		HashMap<String, Integer> hm = new HashMap<>();
+		for(String tempStr: splitStr){
+			System.out.println(tempStr);
+			
+			if(hm.get(tempStr) != null){
+				hm.put(tempStr, hm.get(tempStr)+1);
+			}
+			else
+			hm.put(tempStr, 1);
+		}
+		System.out.println(hm);
+		
+		Iterator<String> strItr = hm.keySet().iterator();
+		while(strItr.hasNext()){
+			String temp = strItr.next();
+			if(hm.get(temp)>1){
+				System.out.println("the workd " + temp + " appeared "+ hm.get(temp) + " times.");
+				
+			}
+		}
+	}
+	
+	static void findDuplicateChar(String str){
+		
+		HashMap<Character, Integer> hm = new HashMap<>();
+		
+		for(int i = 0; i<str.length(); i++){
+			char c = str.charAt(i);
+			
+			if(hm.get(c) !=null){
+				hm.put(c, hm.get(c)+1);				
+			}
+			else
+			hm.put(c,1);
+		}
+		
+		Iterator<Character> chrItr = hm.keySet().iterator();
+		while(chrItr.hasNext()){
+			char temp = chrItr.next();
+			if(hm.get(temp)>1){
+				System.out.println("the char " + temp + " appeared "+ hm.get(temp) + " times.");
+				
+			}
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		
+		findDuplicateWord("i am am learning java java");
+		findDuplicateChar("javaj2ee");
+		
+		
+
+	}
+
+}
