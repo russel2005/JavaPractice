@@ -1,0 +1,36 @@
+package stringbufferdemo;
+
+public class practice {
+
+	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder ("Java");
+		sb.setCharAt(0, 'L');
+		System.out.println(sb);//Lava
+		sb.insert(2,"software");
+		System.out.println(sb);//Lasoftwareva
+		sb.delete(2, 9);
+		System.out.println(sb);//Laeva
+		sb.deleteCharAt(2);
+		System.out.println(sb);//Lava
+		sb.reverse();
+		System.out.println(sb);//avaL
+		
+		StringBuilder sb2 = new StringBuilder ("ProgrammingLanguage");
+		sb2.setLength(7);
+		System.out.println(sb2);// Program
+		
+		StringBuilder sb3 = new StringBuilder();
+		System.out.println(sb3.capacity()); // default capacity 16
+		sb3.ensureCapacity(1000);
+		System.out.println(sb3.capacity()); //1000
+		
+		StringBuilder sb4 = new StringBuilder(500);
+		sb4.append("Java");
+		System.out.println(sb4.capacity()); //500
+		sb4.trimToSize();
+		System.out.println(sb4.capacity());//4, trim the extra space or de-allocate the memory by trimToSize method
+		StringBuffer sbuf = new StringBuffer();		
+
+	}
+
+}
