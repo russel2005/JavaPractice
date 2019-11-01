@@ -1,0 +1,14 @@
+public class LocalDateAndTime {
+
+	public static void main(String[] args) {
+		System.out.println(LocalDate.now());  //2019-11-01
+		System.out.println(LocalTime.now());  //13:45:15.175
+		System.out.println(LocalDateTime.now()); //2019-11-01T13:45:15.175
+				  
+		 LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
+		 Period p = Period.of(1, 2, 3);
+		 d = d.minus(p);
+		 DateTimeFormatter f = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
+		 System.out.println(d.format(f)); //11:22 AM
+	}
+}
