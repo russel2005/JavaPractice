@@ -1,0 +1,77 @@
+package allstring;
+
+public class StringReverseWith {
+
+	public static void main(String[] args) {
+		String s1 = reverseMe("russel");
+		System.out.println(s1);
+		
+		String s2 = reverse("Arish");
+		System.out.println(s2);
+		
+		String s3  = reverseString("language");
+		System.out.println(s3);
+		
+		String str  = reverseToChar("practice");
+		System.out.println(str);
+		
+		printRev("java");
+		
+		//reversed string using Stringbuffer
+		String stb = "sample";
+        String reverseStr = new StringBuffer(stb).reverse().toString();
+        System.out.println("Reverse String in Java using StringBuffer: " + reverseStr);
+        
+        //String builder with reverse()
+        StringBuilder sb = new StringBuilder(stb);        
+        System.out.println("Reversed string is: " +sb.reverse().toString());
+
+	}
+	
+	// s1 Iteratively with Stringbuilder
+	static String reverseMe(String s) {
+		   StringBuilder sb = new StringBuilder();
+		   for(int i = s.length() - 1; i >= 0; --i)
+		     sb.append(s.charAt(i));
+		   return sb.toString();
+	}
+	
+	// reverse with string builder and toCharArray()
+	public static String reverseToChar(String str) {
+        StringBuilder strBuilder = new StringBuilder();
+        char[] strChars = str.toCharArray();
+
+        for (int i = strChars.length - 1; i >= 0; i--) {
+            strBuilder.append(strChars[i]);
+        }
+
+        return strBuilder.toString();
+    }
+	
+	// s2
+	static String reverse(String s) {
+		  int len = s.length();
+		  char[] arrayCh = s.toCharArray();
+		  for(int i=0; i< len/2; i++) {
+		      char ch = s.charAt(i);
+		      arrayCh[i] = arrayCh[len-1-i];
+		      arrayCh[len-1-i] = ch;
+		  } 
+		 return new String(arrayCh);
+	}
+	
+	//just print reversely
+	static void printRev(String str) {
+		 for(int i=str.length()-1; i>=0; i--)
+		  System.out.print(str.charAt(i));
+	}
+	
+	//s3 with decrementing for loop
+	static String reverseString(String str) {
+	    String newString = "";
+	    for (int i = str.length() - 1; i >= 0; i--) {
+	        newString += str.charAt(i);
+	    }
+	    return newString;
+	}
+}
