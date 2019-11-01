@@ -1,0 +1,69 @@
+package mapcollection;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapDemo {
+
+	public static void main(String[] args) {
+		HashMap<String, Integer> mapOfWords = new HashMap<String, Integer>() {
+			{
+				put("John", 25);
+				put("at", 2);
+				put("from", 10);
+				put("is", 5);
+			}
+		};
+		
+		for (String name: mapOfWords.keySet()){
+            String key = name.toString();
+            String value = mapOfWords.get(name).toString();  
+            System.out.println(key + " " + value);  
+		} 
+		
+		System.out.println(Arrays.asList(mapOfWords)); // method 1
+		//System.out.println(Collections.singletonList(mapOfWords)); // method 2
+		
+		mapOfWords.put("at", 12);
+		System.out.println(Arrays.asList(mapOfWords)); // method 1
+		mapOfWords.replace("at", 50);
+		System.out.println(Arrays.asList(mapOfWords));
+		
+		for (String name: mapOfWords.keySet()){
+           // String key = name.toString();
+           // String value = mapOfWords.get(name).toString();  
+            System.out.println(name + " " + mapOfWords.get(name));  
+		} 
+		
+		for(Map.Entry<String, Integer> name: mapOfWords.entrySet()){
+			System.out.println(name.getKey()+" : "+name.getValue());
+		}
+		
+		Integer oldValue = mapOfWords.put("from", 67); //return old value
+		System.out.println(oldValue);
+		
+		System.out.println("hm: "+ mapOfWords);
+		
+		
+		oldValue = mapOfWords.put("frm", 99); //return null because key doesn't exist
+		System.out.println("update when not exist the key: " +oldValue); //null
+		
+		//update using replace() method
+		oldValue = mapOfWords.replace("frmee", 99);//return null because key doesn't exist
+		System.out.println("update with replace() not exist the key: " +oldValue); //null
+		
+		//update wit replace when exist key and value
+		boolean isUpdateWord = mapOfWords.replace("from", 67, 888);
+		System.out.println(isUpdateWord);
+		
+		//update wit replace when doesn't exist either key and value or individual
+		boolean isUpdateWord2 = mapOfWords.replace("from", 67, 888);
+		System.out.println(isUpdateWord2);
+		
+		int i = 10+ +11 - (-12)+ +16;
+		System.out.println(i);
+	}
+
+}
