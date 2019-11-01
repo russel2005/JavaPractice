@@ -1,0 +1,38 @@
+package allarray;
+
+import java.util.Arrays;
+
+public class FindMax_MinFromArray {
+
+	public static void main(String[] args) {
+		int [] sample = {-12,-34,-568,-67,-8,-99,-8,-34,-568,-67,-8,-99,-8,-34,-568,-67,-8,-99,-8,-34,-568,-67,-8,-99,-8,-34,-568,-67,-8,-99,-8,-34,-568,-67,-8,-99,-8};
+		
+		int maxval = sample[0], minval=sample[0];
+		 long startTime = System.currentTimeMillis();
+		for(int i=1; i<sample.length; i++){
+			if(sample[i] > maxval){
+				maxval = sample[i];				
+			}else if( sample[i] < minval){
+				minval = sample[i];
+			}			
+		}
+		long stopTime = System.currentTimeMillis();
+		
+		System.out.println("max Number: " +maxval);
+		System.out.println("min Number: " +minval);
+
+		//another way
+		Arrays.sort(sample);
+		System.out.println("min Number: " +sample[0]);
+		System.out.println("max Number: " +sample[sample.length-1]);
+		
+		 //long startTime = System.currentTimeMillis();
+
+	    
+	    //  long stopTime = System.currentTimeMillis();
+	      long elapsedTime = stopTime - startTime;
+	      System.out.println(elapsedTime);
+
+	}
+
+}
