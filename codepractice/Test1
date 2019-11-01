@@ -1,0 +1,17 @@
+package codepractice;
+
+public class Test {
+	public static void main(String [] args){
+		System.out.println(Fruit.TYPE); // here we didn't create class obj because public static final String TYPE =
+	}	
+
+}
+interface IFruit {
+	public String TYPE = "Apple"; //in interface all variable by default public static final
+	//protected String TYPE2 = "Orange"; //invalid modifier, only public, static final permitted
+}
+
+class Fruit implements IFruit{
+	
+}
+//Print: Apple
