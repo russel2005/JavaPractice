@@ -1,0 +1,27 @@
+package allarray;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListToArray {
+
+	public static void main(String[] args) {
+		List<String> list = new ArrayList<>();
+		list.add("hawk");
+		list.add("robin");
+		list.add("halicop");
+		
+		Object[] objectArray = list.toArray();
+		System.out.println(objectArray.length); // 2
+		String[] stringArray = list.toArray(new String[0]);
+		System.out.println(stringArray.length); // 2
+		
+		
+		int x = 0;
+		for(; x<15; x +=3){
+			System.out.println(x);
+		}
+		
+	}
+
+}
