@@ -1,0 +1,18 @@
+package orderofinittialization;
+
+	public class InitializationOrderSimple {
+		private String name = "Torchie";
+		 { System.out.println(name); }
+		 static { add(2);}
+		 static void add(int num){System.out.println(num + " ");}
+		
+		 private static int COUNT ;//= 0;
+		 static { System.out.println(COUNT); }
+		 static { COUNT += 20; System.out.println(COUNT); }
+		 private int num = 100;
+		 {System.out.println(num);}
+		 public InitializationOrderSimple() {
+		 System.out.println("constructor");		
+		 
+	 }
+}
