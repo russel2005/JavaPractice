@@ -1,0 +1,59 @@
+package mapcollection;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+public class FindWordFromString {
+
+	public static void main(String[] args){
+		String str ="this is exam and exam is easy, so pass the exam";
+		findDuplicateWord(str);
+	}
+	
+	static void findDuplicateWord(String str){
+		String[] splitStr = str.split(" ");
+				
+			HashMap<String, Integer> hm = new HashMap<>();
+			for(String tempStr: splitStr){
+				System.out.println(tempStr);
+					
+				if(hm.get(tempStr) != null){
+				   hm.put(tempStr, hm.get(tempStr)+1);
+				}
+				else
+				hm.put(tempStr, 1);
+			}
+			System.out.println(hm);
+				
+			Iterator<String> strItr = hm.keySet().iterator();
+			while(strItr.hasNext()){
+			     String temp = strItr.next();
+			     //find more than 1 times of each word
+			     if(hm.get(temp)>1){
+			     System.out.println("the word " + temp + " appeared "+ hm.get(temp) + " times.");
+						
+			     }      
+			}
+			
+			//find the max value
+			 String maxKey = null;
+		     Integer maxCount = 0;
+		     for (Map.Entry<String, Integer> entry : hm.entrySet()) {
+		       if (entry.getValue() > maxCount) {
+		         maxKey = entry.getKey();
+		         maxCount = entry.getValue();
+		       }
+		     }
+		     System.out.println("the word " + maxKey + " given " +maxCount +" times.");
+		     
+			//or java 8
+			System.out.println(Collections.max(hm.entrySet(), Comparator.comparingInt(Map.Entry::getValue)).getKey());
+			
+	}
+
+}
+
