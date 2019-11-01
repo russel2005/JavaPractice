@@ -2,8 +2,20 @@ package codepractice;
 
 public class Test2 {
 	public static void main(String [] args){
-
-		final class Constants{public final static String name="Pi";} // if we remove final it will throw compiler error
+	
+		//Compare Wrapper obj
+		Integer i1 = 127;
+		Integer i2 = 127;
+		
+		System.out.println(i1==i2); //true
+		Integer i3 = 128;
+		Integer i4 = 128;
+		
+		System.out.println(i3==i4); //false
+	
+		final class Constants {
+			public final static String name="Pi";
+		} // if we remove final it will throw compiler error
 		
 		Thread thread = new Thread(new Runnable(){
 			@Override
