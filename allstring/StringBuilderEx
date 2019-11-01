@@ -1,0 +1,29 @@
+package allstring;
+
+import java.util.Arrays;
+
+public class StringBuilderEx {
+
+	public static void main(String[] args) {
+	
+		StringBuilder one = new StringBuilder();
+		StringBuilder two = new StringBuilder();
+		StringBuilder three = one.append("a");
+		System.out.println(one == two); // false
+		System.out.println(one == three); // true
+		
+		System.out.println(one);
+		System.out.println(three);
+		System.out.println(three.equals(two));//false
+		System.out.println(three.equals(one));//true
+		
+		int[] n = new int[10];
+		for(int i=0; i<n.length; i++){
+			n[i] = i + 5;
+		System.out.println(n[i]);
+		}
+		int[] numbers ={3,2,1};
+		System.out.println(Arrays.binarySearch(numbers, 8));
+	}
+
+}
