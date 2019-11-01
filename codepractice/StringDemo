@@ -1,0 +1,40 @@
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class StringPractice {
+
+	public static void main(java.lang.String[] args) {
+		String a="Test";
+		String b="Test";
+		System.out.println(a.equals(b));
+		System.out.println(a==b);
+		//===> true
+
+		String a2="test";
+		String b2=new String("test");
+		System.out.println(a2.equals(b2)); //===> true
+		System.out.println(a2==b2);// ===> false
+		
+		String first = "first";
+		System.out.println(first.hashCode());
+		// prints something
+
+		first = first + "!";
+		System.out.println(first.hashCode());
+		// different string, different hash code
+		
+		
+		Date date = new Date();long timeMilli = date.getTime();
+		System.out.println("before adding string: "+ timeMilli);
+
+		String alpha = "";
+		for(char current = 'a'; current <= 'z'; current++)
+			alpha += current;
+		System.out.println(alpha); //abcdefghijklmnopqrstuvwxyz
+		Date date2 = new Date();long timeMilli2 = date2.getTime();
+		System.out.println("after adding string: "+ timeMilli2);
+				
+	}
+
+}
