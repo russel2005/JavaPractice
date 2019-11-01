@@ -1,0 +1,23 @@
+public class NumPrint {
+
+	public static void main(String[] args) {
+		int a=1;
+		while(a<=10){
+	         System.out.print(a+",");
+		     a+=1;
+		}
+		System.out.println();
+		for(a=1;a<=10;a++){
+			 System.out.print(a+",");	
+		}
+		System.out.println();
+		a=1;
+		do{
+			System.out.print(a+",");
+			a++;
+		}while(a<=10);
+		
+
+	}
+
+}
