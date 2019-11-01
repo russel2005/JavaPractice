@@ -1,0 +1,13 @@
+upload project to github
+Connect to your GitHub:
+1>git config --global user.name "Touhidul Islam"
+2>git config --global user.email youremail@domain.com
+
+Steps: (from project folder location)
+1>git init	2>git add .	3>git commit -m "adding all files"
+4>git remote add origin https://github.com/yourusername/your-repo-name.git
+5>git pull origin master   (upload project from scratch require git pull)
+6>git push origin master
+
+if you have problems uploading!
+>git push --force origin master
