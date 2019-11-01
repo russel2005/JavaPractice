@@ -1,0 +1,43 @@
+package lambdaDemo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class LambdaExample {
+
+	public static void main(String[] args) {		
+		
+		ArrayList<Integer> arrL = new ArrayList<Integer>(); 
+        arrL.add(1); 
+        arrL.add(2); 
+        arrL.add(3); 
+        arrL.add(4); 
+        arrL.forEach(n -> System.out.println(n)); 
+        //print even number
+        System.out.println("=====Even number=====");
+        arrL.forEach(n -> { if (n%2 == 0) System.out.println(n); });    
+        
+		
+		List<String> players = Arrays.asList("Tamim", "Sakib","mostafiz", "mahmudally","rubel");
+		
+		//find the one player traditional way before java 1.8
+		boolean sakibFlag = false;
+		for(String player: players){
+			if(player.equals("Sakib")){
+				System.out.println("Yes, Sakib is the squad.");
+				sakibFlag = true;
+			}
+			
+		}
+		
+		//after java 1.8 with lambda
+		players.stream()
+				.filter(player -> player.equals("Sakib"))
+				.forEach(player -> System.out.println("Yes, Sakib is the squad."));
+		
+		//
+		
+	}
+
+}
