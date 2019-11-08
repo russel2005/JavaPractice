@@ -1,0 +1,80 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetDemo {
+	/*
+	1. Unique values without an index
+	2. Unordered element
+	3. Set inherits its method from the collection interface, but additional rules on some methods,
+	   ex: add() must add only unique values.
+	4. Collection methods Set overrides:
+		add(), addAll(), clear(), contains(),containsAll, equals(), remove(), removeAll(), size(), toArray(), retainAll().
+	
+	*/
+
+//	Set<String> languages = new Set<String>(); //Set is abstract; cann't be instantiated.
+	//build our own?
+	/*
+	 * 1.HashSet   -> most commonly used set
+	 * 2.TreeSet
+	 * 3.EnumSet
+	 */
+	
+	//Sets can HOLD any type of Object
+	//Set of Integers
+	Set<Integer> numbers = new HashSet<>();
+	
+	//Class obj
+//	Set<MyProduct> products = new HashSet<>(); //error because class not declared yet
+	
+	//set any type
+	Set<Object> objctecs = new HashSet<>();
+	
+	
+	public static void main(String[] args){
+		
+		
+		//adding Elements to a Set - No Duplicates
+		Set<String> languages = new HashSet<>(Arrays.asList("HTML", "CSS","JS"));
+		
+		languages.add("HTML");
+		languages.add("CSS");
+		
+		System.out.println(languages.size()); // still size is 3
+		for(String lang: languages){
+			System.out.println(lang); //CSS,JS,HTML
+		}
+		
+		//find the common value from two sets value
+		Set<String> frontEnd = new HashSet<>(Arrays.asList("HTML", "CSS","JS"));
+		Set<String> backEnd = new HashSet<>(Arrays.asList("Java", "C#","Ruby","JS"));
+		
+		Set<String> intersection = new HashSet<>(frontEnd);
+		intersection.retainAll(backEnd); //retainAll() method only retain common values
+		for(String common: intersection){
+			System.out.println("common language: "+ common); //CSS,JS,HTML
+		}
+		
+		
+		//union with addAll()
+		Set<String> union = new HashSet<>(frontEnd);
+		union.addAll(backEnd);	
+		System.out.println("language: ");
+		for(String allLang: union){
+			System.out.println(allLang +" "); //CSS,JS,HTML, Ruby,Java,C#   //no repeat values
+			
+		}	
+		//remove only common language from frontEnd 
+		Set<String> frontEnd2 = new HashSet<>(Arrays.asList("HTML", "CSS","JS"));
+		Set<String> backEnd2 = new HashSet<>(Arrays.asList("Java", "C#","Ruby","JS"));
+		Set<String> unique = new HashSet<>(frontEnd2);
+		unique.addAll(backEnd2);
+		unique.removeAll(backEnd2);
+		System.out.println("unique frontEnd language: ");
+		for(String uniqueFrontEnd: unique){
+			System.out.print(uniqueFrontEnd +" "); //HTML CSS
+		}
+	}	
+	
+}
