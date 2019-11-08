@@ -1,3 +1,50 @@
+let name = 'Russel'; //single quote or double quote
+let age = 30;
+let isApproved = false;
+let firstName = undefined;
+let selectedColor = null;
+
+//in JS Primitives/Values Types            // Reference Type
+------------------------------              -------------------
+String                                       Object
+Number                                       Array
+Boolean                                      Function
+undefined
+null
+
+//array
+let name = 'Arish';
+let age = 4;
+let person = {
+  name: 'Arish';
+  age:4;
+}
+console.log(person);
+
+//another Array
+let selectColor = ['red', 'blue'];
+console.log(selectColor);
+console.log(selectColor[0]);// output: red
+selectColor[2] = 'green';
+console.log(selectColor); //output: ["red", "blue","green"] //so array length is DYNAMIC.
+//array can store different type 
+selectColor[2] = 10;  //here number 
+console.log(selectColor); //output: ["red", "blue", 10] 
+//>typeof selectColor //ouput: object, so array is an object in JS.
+//find array size/length
+console.log(selectColor.length); // 3
+
+//Dot notation
+person.name = 'John';
+console.log(person.name);
+
+//Bracket notaiton
+person.['name'] = 'John';
+//example
+let selection = 'name';
+person[selection] = 'John';
+
+//function
 function greet(name){ // -> here name is parameter of greet function, at time of declaration.
 console.log('Hello ' + name);
 }
