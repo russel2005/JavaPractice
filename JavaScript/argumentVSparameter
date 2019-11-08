@@ -1,0 +1,5 @@
+function greet(name){ // -> here name is parameter of greet function, at time of declaration.
+console.log('Hello ' + name);
+}
+
+greet('Russel'); //-> here 'Russel' is a argument which has actual value
