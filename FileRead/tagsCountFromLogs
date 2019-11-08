@@ -1,0 +1,56 @@
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		String fileName = System.getProperty("user.dir") +"\\src\\tags.log";
+		System.out.println(fileName);
+		
+		List<String> tagsList = getHashTags(fileName);
+		System.out.println(tagsList.size());
+		
+		for(String hashtags: tagsList)
+			System.out.println(hashtags);
+		
+
+	}
+	
+	public static List<String> getHashTags(String fileName) throws IOException {
+		BufferedReader bufferedReader = null;
+		String line = "";
+		List<String> hashTags = new ArrayList<>();
+		
+		try {
+			bufferedReader = new BufferedReader(new FileReader(fileName));
+			
+			while((line = bufferedReader.readLine()) != null){
+				String[] words = line.split("[^\\w#@]+");
+				
+				for(String word : words){
+					if(word.contains("#")){
+						word = word.replaceAll("^[^#]*", "");
+						if(!hashTags.contains(word))
+							hashTags.add(word);
+					}
+				}				
+			}
+			
+			hashTags.sort(String::compareTo);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e){
+			e.printStackTrace();
+		} finally{
+			bufferedReader.close();
+		}	
+		
+		return hashTags;
+	}
+
+}
