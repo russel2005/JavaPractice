@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class TemperatureCalculatorTest {
 	
-	@Test
+    @Test
     public void testToDegree(){
         TemperatureCalculator calculator = new TemperatureCalculator();
         assertEquals(36.666668f,calculator.toDegree(98),0);
