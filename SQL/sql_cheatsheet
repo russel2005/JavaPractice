@@ -1,0 +1,48 @@
+Name  emp         
+----- ----- ------------ 
+EMPNO       NUMBER(4)    
+ENAME       VARCHAR2(30) 
+JOB         VARCHAR2(10) 
+SAL         NUMBER(6)    
+DEPT        NUMBER(2) 
+
+Name     Department        
+-------- ----- ------------ 
+DEPT           NUMBER(2)    
+DEPTNAME       VARCHAR2(20) 
+
+select * from emp
+select * from department
+--return emp record with max salary
+select * from emp where sal = (select max(sal) from emp)
+select max(sal) as highest_sal from emp
+
+--return 2nd highest sal 
+select max(sal) as highest_sal from emp where sal != (select max(sal) from emp)
+select max(sal) as second_highest_sal from emp where sal not in (select max(sal) from emp)
+
+--select range of emp based on id
+select * from emp
+where EMPNO between 30 and 50
+
+--return emp name, highest sal and dept
+select e.ename, e.job, e.sal, d.deptname from emp e inner join department d
+on e.dept = d.dept
+where sal in (select Max(sal) from emp)
+
+--return emp name, highest sal with each dept
+select e.ename, e.job, e.sal, d.deptname from emp e inner join department d
+on e.dept = d.dept
+where sal in (select Max(sal) from emp group by dept)
+
+--return nth highest sal 
+select e1.ename, e1.job, e1.sal from emp e1
+where &n = (select count(distinct(sal)) from emp e2 where e2.sal >= e1.sal);
+
+SELECT * FROM
+(
+SELECT   ename, sal, DENSE_RANK() OVER (ORDER BY sal DESC) nth_highest_sal
+FROM emp
+)
+WHERE nth_highest_sal = 3;
+
