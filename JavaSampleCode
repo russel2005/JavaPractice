@@ -1,3 +1,4 @@
+url> https://javaconceptoftheday.com/java-interview-programs-with-solutions/
 1. SWAP two int without temp variable. 
 Int x=10, y=5;
 //code to swap ‘x’ and ‘y’
