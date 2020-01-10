@@ -5,13 +5,13 @@ import java.util.Properties;
 
 public class GetPropertieValues {
 	
-	public Properties prop;
+	private Properties prop;
 	
 	GetPropertieValues(String configFileName){
 		try {
 			//configFileName = "config.properties";
-			prop = new Properties();
-			prop.load(new FileInputStream(System.getProperty("user.dir") + "\\resources\\" + configFileName));
+			this.prop = new Properties();
+			this.prop.load(new FileInputStream(System.getProperty("user.dir") + "\\resources\\" + configFileName));
 			
 		}catch (FileNotFoundException e) {
 			System.out.println("property file '" + configFileName + "' not found in the classpath");
@@ -23,7 +23,7 @@ public class GetPropertieValues {
 
 	public Properties getPropValues(String configFileName) throws IOException { 
 		
-		return prop;
+		return this.prop;
 	}
 	
 	public String getAppName() {
