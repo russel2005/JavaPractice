@@ -1,0 +1,100 @@
+com.inetbank.pageObject
+com.inetbank.testCases
+com.inetbank.testData
+com.inetbank.utils
+
+-----------------
+LoginPage.java
+package com.inetbank.pageObjects;
+
+public class LoginPage {
+	WebDriver driver;
+	
+	LoginPage(Webdriver driver){
+		this.driver = driver;	
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(name="uid")
+	@CacheLookup
+	WebElement txtUserName;
+	
+	
+	@FindBy(name="password")
+	@CacheLookup
+	WebElement txtPassword;
+	
+	@FindBy(name="btnLogin")
+	@CacheLookup
+	WebElement btnLogin;
+	
+	public void setUserName(String uname){
+		txtUserName.sendKeys(uname);
+	}
+	
+	public void setPassword(String passwd){
+		txtPassword.sendKeys(passwd);
+	}
+	
+	public void clickSubmit(){
+		btnLogin.click();
+	}
+}
+--------------
+testBase.java
+package com.inetbank.testcases;
+
+import java.util.logging.Logger;
+
+public class TestBase {
+	
+	public String baseURL="https:demo.guru99.com/v4/";
+	public String uesrname="";
+	public String password="";
+	public static WebDriver driver;
+	public static Logger logger;
+	
+	@BeforClass
+	public void setup(){
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+	    logger = Logger.getLogger("ebanking");
+		PropertyConfigurator.cinfigure("log4j.properties");
+	}
+
+	@AfterClass
+	public void tearDown(){
+		driver.quit();
+	}
+}
+--------------
+TC_LoginPageTest.java
+
+package com.inetbank.testcases;
+
+import com.inetbank.pageObjects.LoginPage;
+
+public class TC_LoginPageTest extends TestBase{
+
+	@Test
+	public void loginTest(){
+		driver.get(baseURL);
+		
+		logger.info("URL is opended");
+		LoginPage lp = new LoginPage(driver);
+		lp.setUserName(uesrname);
+		lp.setPassword(password);
+		lp.clickSubmit();
+		logger.info("click submit");
+		if(driver.getTitle().equals("Guru99 Bank Manager HomePage")){
+			Assert.assertTrue(true);
+			logger.info("Login test passed");
+		}else{
+			Assert.assertFalse(true);
+			logger.info("Login test failed");
+		}
+		
+	}
+}
+
+----------------------
