@@ -1,16 +1,15 @@
 Q #01) reverse a string without using String inbuilt function.
 Q #02) swap two numbers without using the third variable.
 Q #03) find each/duplicate character count in a String.
-Q #04) find each/duplicate word count in a String.
-Q #05) remove duplicate form ArrayList
+Q #04) difference equals() vs ==
 ###01 answer:
-a) 
+#a) 
     String str = "java programming";		
 		for(int i = str.length()-1; i>=0; i--){
 			System.out.print(str.charAt(i));
 		}
     
-b) //iterative method
+#b) //iterative method
 		char[] strArray = str.toCharArray();
 		for(int i = strArray.length-1; i >=0; i--){
 			System.out.print(strArray[i]);
@@ -47,3 +46,23 @@ String str = "this is java code and java is fun java";
             }
         }
 ###04 answer:
+String s1 = "text";
+String s2 = "text";
+String s3 = "t" + "ext";
+
+System.out.println(s1 == s2); // true or false?
+System.out.println(s2 == s3); // true or false?
+
+#output: true
+#output: true
+	
+    static boolean isHelloWord(String str) { 
+        return str == "Hello World"; // scary code 
+        return str.equals("Hello World"); // correct, but what happens if str is null? throw null pointer exception
+        return "Hello World".equals(str); // expected solution
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(isHelloWord("Hello World"));
+        System.out.println(isHelloWord(null));
+    }
