@@ -55,7 +55,7 @@ System.out.println(s2 == s3); // true or false?
 
 #output: true
 #output: true
-	
+##########################################	
     static boolean isHelloWord(String str) { 
         return str == "Hello World"; // scary code 
         return str.equals("Hello World"); // correct, but what happens if str is null? throw null pointer exception
@@ -65,4 +65,14 @@ System.out.println(s2 == s3); // true or false?
     public static void main(String[] args) {
         System.out.println(isHelloWord("Hello World"));
         System.out.println(isHelloWord(null));
+	
+       Integer a = 127;
+       Integer b = 127;
+       Integer c = 128;
+       Integer d = 128;
+
+       System.out.println(a == b); // true or false? T
+       System.out.println(c == d); // true or false? F
+//Why? Because integer values between -128 and 127 are cached, but 128 is not.
     }
+#########################################
