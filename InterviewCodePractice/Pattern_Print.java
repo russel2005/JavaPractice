@@ -139,3 +139,43 @@ for(int i=n-1; i>0; i--){//below are same code
 }
 sc.close();
 
+### 7. Pyramid with space
+Rows Wants In Your Pyramid?5
+     * 
+    * * 
+   * * * 
+  * * * * 
+ * * * * * 
+  * * * * 
+   * * * 
+    * * 
+     * 
+Scanner sc = new Scanner(System.in); 
+System.out.print("Rows Wants In Your Pyramid?"); 
+int noOfRows = sc.nextInt();
+int rowStarCount = 1;
+//pyramid up
+for (int i = noOfRows; i > 0; i--){
+     for (int j = 1; j <= i; j++) {
+          System.out.print(" ");
+     }
+     for (int j = 1; j <= rowStarCount; j++){
+          System.out.print("* ");
+     }
+         System.out.println();
+         rowStarCount++;
+}
+
+//pyramid down
+rowStarCount = 1;
+for (int i = noOfRows-1; i > 0; i--){
+     for (int j = 1; j <= rowStarCount+1; j++) {
+          System.out.print(" ");
+     }
+     for (int j = 1; j <= i; j++){
+          System.out.print("* ");
+     }
+         System.out.println();
+         rowStarCount++;
+}
+sc.close();
