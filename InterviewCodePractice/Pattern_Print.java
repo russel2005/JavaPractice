@@ -89,20 +89,21 @@ public static void pyramidPattern(int n)
   * * * 
  * * * * 
 * * * * *
-Scanner sc = new Scanner(System.in); 
-System.out.print("Rows Wants In Your Pyramid?"); 
-int noOfRows = sc.nextInt();
-int rowCount = 1;
-for (int i = noOfRows; i > 0; i--){
-     for (int j = 1; j <= i; j++) {
-          System.out.print(" ");
-     }
-     for (int j = 1; j <= rowCount; j++){
-          System.out.print("* ");
-     }
-         System.out.println();
-         rowCount++;
-}
+Scanner sc = new Scanner(System.in);
+        System.out.println("enter row number.");
+        int rows = sc.nextInt();
+
+        for(int i = rows-1; i>=0; i--){
+            for(int j = 0; j<=i; j++){
+                System.out.print(" ");
+            }
+            for(int k = 1; k<= rows-i; k++ ){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
 
 ### 6. Diamond Shape Pattern 
     *
@@ -150,32 +151,27 @@ Rows Wants In Your Pyramid?5
    * * * 
     * * 
      * 
-Scanner sc = new Scanner(System.in); 
-System.out.print("Rows Wants In Your Pyramid?"); 
-int noOfRows = sc.nextInt();
-int rowStarCount = 1;
-//pyramid up
-for (int i = noOfRows; i > 0; i--){
-     for (int j = 1; j <= i; j++) {
-          System.out.print(" ");
-     }
-     for (int j = 1; j <= rowStarCount; j++){
-          System.out.print("* ");
-     }
-         System.out.println();
-         rowStarCount++;
-}
+  Scanner sc = new Scanner(System.in);
+        System.out.println("enter row number.");
+        int rows = sc.nextInt();
 
-//pyramid down
-rowStarCount = 1;
-for (int i = noOfRows-1; i > 0; i--){
-     for (int j = 1; j <= rowStarCount+1; j++) {
-          System.out.print(" ");
-     }
-     for (int j = 1; j <= i; j++){
-          System.out.print("* ");
-     }
-         System.out.println();
-         rowStarCount++;
-}
-sc.close();
+        for(int i = rows-1; i>=0; i--){
+            for(int j = 0; j<=i; j++){
+                System.out.print(" ");
+            }
+            for(int k = 1; k<= rows-i; k++ ){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        for(int i = 1; i<= rows; i++){// below two loops are the same code like above
+            for(int j = 0; j<=i; j++){
+                System.out.print(" ");
+            }
+            for(int k = 1; k<= rows-i; k++ ){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        sc.close();
