@@ -8,7 +8,7 @@
 7)	String to char
 8)	Reverse String like: java programming> gnimmargorp avaj
 9)	Reverse each String words like: this is java > siht si avaj
-10)	Remove whitespace
+10)	PrimeNumber
 11)	Remove duplicate from Array or List.
 12)	Find Duplicate Characters in String:
 13)	Find Duplicate from Array
@@ -27,6 +27,16 @@ for (int i = 0; i < charArray.length; i++){
    if (charArray[i] != ' '){
          stringWS = stringWS + charArray[i]; }
 }
+//or
+String str = "this is java code";
+String[] strArray = str.split(" ");
+String tempStr = "";
+for(String s: strArray){
+   tempStr += s;
+}
+out.print("without sp: " +tempStr);
+
+
 ###2)
 String str = "MyJava"; 
 char[] chars = str.toCharArray(); 
@@ -34,12 +44,14 @@ for (int i = chars.length-1; i >= 0; i--){
   System.out.print(chars [i]);
 }
 
+
 ###3) a> with for each loop
 String str = "this java code";
 int count =0;
 for(char c : str.toCharArray())
     count++;
 System.out.println("length: " +count);
+
 
 ###3) b> with while loop
 public int strLength(String str){
@@ -54,11 +66,13 @@ public int strLength(String str){
  }
 }
 
+
 ###4)
 char myChar = 'r';		
 String myStr = Character.toString(myChar);
 //or
 String myStr2 = String.valueOf(myChar);
+
 
 ###5)
 int num=10, a=0, b=0, c=1;
@@ -70,6 +84,7 @@ for(int i=0; i <= num; i++){
     System.out.print(c + " ");
 }
 
+
 ###6)
 int givenNum = 123;
 int sum =0;
@@ -80,6 +95,7 @@ while(givenNum != 0){
 }	
 System.out.println(sum);
 
+
 ###7)
 String str = "Russel";	
 System.out.println(str.length());
@@ -87,6 +103,7 @@ for(int i=0; i<str.length(); i++){
    char ch = str.charAt(i);
    print("Char at"+i+" Pos: "+ch);
 }
+
 
 ###8)
 //reverse string with charAt() method
@@ -99,6 +116,7 @@ char[] strArray = str.toCharArray();
 for(int i=strArray.length-1; i>=0; i--){
    System.out.print(strArray[i]);
 }
+
 
 ###9)
 String str = "this is java code";
@@ -116,14 +134,25 @@ for(int i = 0; i<strwords.length; i++){
 }
 System.out.println("reverse str: " +tempStr);
 
-###10) 
-String str = "this is java code";
-String[] strArray = str.split(" ");
-String tempStr = "";
-for(String s: strArray){
-   tempStr += s;
-}
-out.print("without sp: " +tempStr);
+
+###10) Prime Number
+int num =100;	       
+String  primeNumbers = "";
+
+for (int i = 1; i <= num; i++){  		  	  
+    int counter =0; 	  
+    for(int j =i; j>=1; j--){
+        if(i%j==0) {
+	  counter = counter + 1;
+	}
+    }
+    if (counter ==2) {		     
+	primeNumbers = primeNumbers + i + " ";
+    }	
+}	
+System.out.println("Prime numbers from 1 to 100 are :");
+System.out.println(primeNumbers);
+
 
 ###11)
 //remove duplicate from Array
