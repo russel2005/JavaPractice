@@ -18,6 +18,8 @@
 17)	Count Occurrences Of Each Element In Array
 18)	Count Occurrences of Each word in Array
 19)	Reverse Array
+20)     Reverse String without reverse method
+21)     Replace String without replace method
 */
 
 ###1)
@@ -294,6 +296,25 @@ for (i=0; i<iArr.length/2; i++) {
 }         
 .out.println("Array Reverse: " +Arrays.toString(iArr));
 
+
+###20)
+public static String reverse(String source){
+	String reverse = "";
+	if(source == null || source.isEmpty()){
+		return source;
+	}
+	for(int i = source.length()-1; i>=0; i--){
+		reverse += source.charAt(i); 
+	}		
+	return reverse;
+}
+
+
+###21) 
+   String str = "this dava code";
+   int pos = 5;
+   char rep = 'j';
+   String newStr = str.substring(0, pos) + rep + str.substring(pos + 1); // this java code.
 
 
 
