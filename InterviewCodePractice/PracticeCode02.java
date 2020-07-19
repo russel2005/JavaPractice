@@ -247,12 +247,9 @@ System.out.println();
 ###16)
 static boolean numberOrNot(String input)
     {
-        try
-        {
+        try{
             Integer.parseInt(input);
-        }
-        catch(NumberFormatException ex)
-        {
+        }catch(NumberFormatException ex){
             return false;
         }
         return true;
@@ -264,7 +261,7 @@ HashMap<Integer, Integer> eleCountMap = new HashMap<>();
 for (int i : inArr) {
     if(eleCountMap.containsKey(i)) {
       eleCountMap.put(i, eleCountMap.get(i)+1);
-    } else {
+    }else {
         eleCountMap.put(i, 1);
     }
 }
@@ -301,10 +298,10 @@ for (i=0; i<iArr.length/2; i++) {
 public static String reverse(String source){
 	String reverse = "";
 	if(source == null || source.isEmpty()){
-		return source;
+	    return source;
 	}
 	for(int i = source.length()-1; i>=0; i--){
-		reverse += source.charAt(i); 
+	    reverse += source.charAt(i); 
 	}		
 	return reverse;
 }
